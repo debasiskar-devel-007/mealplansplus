@@ -18,28 +18,24 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
+      //StatusBar.styleDefault();
+      //StatusBar.statusbarPadding=false;
       if (Splashscreen) {
         setTimeout(() => {
           Splashscreen.hide();
-        }, 100);
+        }, 2000);
       }
+
+        if (StatusBar) {
+            // hide StatusBar using cordova-plugin-statusbar
+          setTimeout(() => {
+            StatusBar.backgroundColorByHexString("#202020")
+          },100);
+        }
     });
   }
 }
-/*function initializeApp() {
-  this.platform.ready().then(() => {
-    this.hideSplashScreen();
-  });
-}
 
-function hideSplashScreen() {
-  if(navigator && navigator.splashscreen) {
-    setTimeout(()=> {
-      navigator.splashscreen.hide();
-    }, 100);
-  }
-}*/
 
 
 ionicBootstrap(MyApp);
